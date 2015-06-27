@@ -5,7 +5,8 @@ class RunscriptSerializerTest < ActiveSupport::TestCase
   end
 
   test "serialization" do
-    runscript = Runscript.new name: "Dockerify", script: "#! /usr/bin/env bash\napt-get install docker"
+    runscript = Runscript.new name: "Dockerify",
+      script: "#! /usr/bin/env bash\napt-get install docker"
     runscript.tag_list.add("store", "banana")
     runscript.save!
 
