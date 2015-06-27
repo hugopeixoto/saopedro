@@ -1,0 +1,100 @@
+{
+  "providers": [
+    {
+      "name": "Digital Ocean",
+      "api_key": "1337K3Y",
+      "machine_templates": [
+        {
+          "name": "small",
+          "disk": 500,
+          "cores": 1,
+          "ram": 500,
+          "price": "10$/mo",
+          "location": "Europe",
+          "transfer": "1TB"
+        },
+        {
+          "name": "medium",
+          "disk": 1000,
+          "cores": 2,
+          "ram": 1000,
+          "price": "20$/mo",
+          "location": "US",
+          "transfer": "2TB"
+        }
+      ]
+    },
+    {
+      "name": "Linode",
+      "api_key": "1337K3Y",
+      "machine_templates": [
+        {
+          "name": "small",
+          "disk": 500,
+          "cores": 1,
+          "ram": 500,
+          "price": "10$/mo",
+          "location": "Europe",
+          "transfer": "1TB"
+        },
+        {
+          "name": "medium",
+          "disk": 1000,
+          "cores": 2,
+          "ram": 1000,
+          "price": "20$/mo",
+          "location": "US",
+          "transfer": "3TB"
+        }
+      ]
+    },
+    {
+      "name": "Young Love",
+      "api_key": "1337K3Y",
+      "machine_templates": [
+        {
+          "name": "small",
+          "disk": 500,
+          "cores": 1,
+          "ram": 500,
+          "price": "10$/mo",
+          "location": "Europe",
+          "transfer": "1TB"
+        },
+        {
+          "name": "large",
+          "disk": 2000,
+          "cores": 3,
+          "ram": 1500,
+          "price": "20$/mo",
+          "location": "US",
+          "transfer": "2TB"
+        }
+      ]
+    },
+    {
+      "name": "Crazy Horse Server Much",
+      "api_key": "1337K3Y",
+      "machine_templates": [
+        {
+          "name": "small",
+          "disk": 500,
+          "cores": 1,
+          "ram": 500,
+          "price": "10$/mo",
+          "location": "Europe",
+          "transfer": "1TB"
+        },
+        {
+          "name": "medium",
+          "disk": 3000,
+          "cores": 2,
+          "ram": 5000,
+          "price": "20$/mo",
+          "location": "US",
+          "transfer": "2TB"
+        }
+      ]
+    }
+  ]
+}
