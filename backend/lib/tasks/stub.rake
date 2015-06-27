@@ -2,9 +2,10 @@ namespace :stub do
 
   desc "Creates stub providers and machines from stub_data_file"
   task providers_and_machines: :environment do
+    puts "Spinning up some providers and machine templates"
     file = File.read(File.join("lib", "data", "providers_stubs.json"))
     JSON.parse(file)["providers"].each do |prov|
-      provider = Provider.create(
+      provider = Provider.first_or_create(
         name: prov["name"],
         api_key: prov["api_key"],
         machine_templates: prov["machine_templates"].map do |tpl|
@@ -19,7 +20,7 @@ namespace :stub do
           )
         end
       )
-      puts "Added #{provider.name}"
+      print "."
     end
   end
 
@@ -28,7 +29,7 @@ namespace :stub do
     puts "Creating machines from templates"
     MachineTemplate.all.each do |tpl|
       (1...5).each do |i|
-        Machine.create(
+        Machine.first_or_create(
           name: "Machine #{SecureRandom.hex(3)}",
           status: i.even? ? "ON" : "OFF",
           disk_usage: tpl.disk / i,
