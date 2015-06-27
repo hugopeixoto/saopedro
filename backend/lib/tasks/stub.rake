@@ -22,4 +22,20 @@ namespace :stub do
       puts "Added #{provider.name}"
     end
   end
+
+  desc "Creates stub machines from existing providers and their templates"
+  task machines: :environment do
+    puts "Creating machines from templates"
+    MachineTemplate.all.each do |tpl|
+      (1...5).each do |i|
+        Machine.create(
+          name: "My machine #{i}",
+          status: i.even? ? "ON" : "OFF",
+          disk_usage: tpl.disk / i,
+          machine_template_id: tpl.id
+        )
+        print "."
+      end
+    end
+  end
 end
