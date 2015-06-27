@@ -29,7 +29,7 @@ namespace :stub do
     MachineTemplate.all.each do |tpl|
       (1...5).each do |i|
         Machine.create(
-          name: "My machine #{i}",
+          name: "Machine #{SecureRandom.hex(3)}",
           status: i.even? ? "ON" : "OFF",
           disk_usage: tpl.disk / i,
           machine_template_id: tpl.id
