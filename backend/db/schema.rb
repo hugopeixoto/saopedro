@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627110916) do
+ActiveRecord::Schema.define(version: 20150627112628) do
 
   create_table "machine_templates", force: :cascade do |t|
     t.string   "name"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20150627110916) do
   create_table "providers", force: :cascade do |t|
     t.string   "name"
     t.string   "api_key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "runscripts", force: :cascade do |t|
+    t.string   "name"
+    t.text     "script"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
