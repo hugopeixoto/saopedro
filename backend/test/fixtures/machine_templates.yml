@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  disk: 1
+  cores: 1
+  ram: 1
+  price: MyString
+  location: MyString
+  transfer: MyString
+
+two:
+  name: MyString
+  disk: 1
+  cores: 1
+  ram: 1
+  price: MyString
+  location: MyString
+  transfer: MyString
