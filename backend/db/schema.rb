@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627112628) do
+ActiveRecord::Schema.define(version: 20150627114006) do
 
   create_table "machine_templates", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20150627112628) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "machine_templates", ["name", "provider_id"], name: "index_machine_templates_on_name_and_provider_id", unique: true
+
   create_table "machines", force: :cascade do |t|
     t.string   "name"
     t.string   "status"
@@ -35,6 +37,8 @@ ActiveRecord::Schema.define(version: 20150627112628) do
     t.datetime "updated_at",          null: false
   end
 
+  add_index "machines", ["name"], name: "index_machines_on_name", unique: true
+
   create_table "providers", force: :cascade do |t|
     t.string   "name"
     t.string   "api_key"
@@ -42,12 +46,16 @@ ActiveRecord::Schema.define(version: 20150627112628) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "providers", ["name"], name: "index_providers_on_name", unique: true
+
   create_table "runscripts", force: :cascade do |t|
     t.string   "name"
     t.text     "script"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "runscripts", ["name"], name: "index_runscripts_on_name", unique: true
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
