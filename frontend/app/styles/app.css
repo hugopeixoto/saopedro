@@ -10,3 +10,14 @@
   line-height: 90px;
   width: 100%;
 }
+
+.machine-index .panel {
+  height: 120px;
+}
+
+.machine-index .new-machine {
+  font-size: 40px;
+  text-align: center;
+  line-height: 50px;
+  width: 100%;
+}
