@@ -1,0 +1,10 @@
+{{outlet}}
+
+<ul>
+{{#each model as |runscript|}}
+  <li>
+    {{runscript.name}} ({{runscript.tagList}})
+    <code><pre>{{runscript.script}}</pre></code>
+  </li>
+{{/each}}
+</ul>
