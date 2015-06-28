@@ -16,7 +16,11 @@ export default Ember.Route.extend({
         script: form.get('script')
       });
 
-      runscript.save();
+      runscript.save().then(function() {
+        this.transitionTo('runscripts');
+      }).catch(function() {
+        runscript.destroyRecord();
+      });
     }
   }
 });
