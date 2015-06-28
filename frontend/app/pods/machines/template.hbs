@@ -16,7 +16,17 @@
   {{#each model as |machine|}}
     <div class="col-xs-6 col-lg-4">
       <div class="panel panel-{{machine-status machine.status}}">
-        <div class="panel-heading">{{machine.name}}</div>
+        <div class="panel-heading">
+          <div class='pull-right'>
+            {{#link-to 'machines'}}
+              <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            {{/link-to}}
+            {{#link-to 'machines'}}
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            {{/link-to}}
+          </div>
+          {{machine.name}}
+        </div>
         <div class="panel-body">
           <p>
             {{machine.diskUsage}} used
