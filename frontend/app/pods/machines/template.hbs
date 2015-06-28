@@ -1,5 +1,13 @@
-<ul>
-  {{#each model as |machine|}}
-    <li>{{machine.name}}</li>
-  {{/each}}
-</ul>
+{{#each model as |machine|}}
+  <div>
+    <h3>{{machine.name}}</h3>
+    <p>
+      {{machine.status}} | {{machine.diskUsage}}
+    </p>
+    <ul>
+      {{#each tagList as |tag|}}
+        <li>{{tag}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/each}}
