@@ -5,7 +5,7 @@
       {{machine.status}} | {{machine.diskUsage}}
     </p>
     <ul>
-      {{#each tagList as |tag|}}
+      {{#each machine.tagList as |tag|}}
         <li>{{tag}}</li>
       {{/each}}
     </ul>
