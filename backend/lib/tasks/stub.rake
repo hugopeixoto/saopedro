@@ -5,10 +5,9 @@ namespace :stub do
     puts "Spinning up some providers and machine templates"
     file = File.read(File.join("lib", "data", "providers_stubs.json"))
     JSON.parse(file)["providers"].each do |prov|
-      provider = Provider.first_or_create(
-        name: prov["name"],
-        api_key: prov["api_key"],
-        machine_templates: prov["machine_templates"].map do |tpl|
+      Provider.find_or_create_by(name: prov["name"]) do |p|
+        p.api_key = prov["api_key"]
+        p.machine_templates = prov["machine_templates"].map do |tpl|
           MachineTemplate.new(
             name: tpl["name"],
             disk: tpl["disk"],
@@ -19,7 +18,7 @@ namespace :stub do
             transfer: tpl["transfer"]
           )
         end
-      )
+      end
       print "."
     end
   end
@@ -29,12 +28,11 @@ namespace :stub do
     puts "Creating machines from templates"
     MachineTemplate.all.each do |tpl|
       (1...5).each do |i|
-        Machine.first_or_create(
-          name: "Machine #{SecureRandom.hex(3)}",
-          status: i.even? ? "ON" : "OFF",
-          disk_usage: tpl.disk / i,
-          machine_template_id: tpl.id
-        )
+        Machine.find_or_create_by(name: "Machine #{SecureRandom.hex(3)}") do |m|
+          m.status = i.even? ? "ON" : "OFF"
+          m.disk_usage = tpl.disk / i
+          m.machine_template_id = tpl.id
+        end
         print "."
       end
     end
