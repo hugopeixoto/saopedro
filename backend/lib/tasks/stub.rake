@@ -32,7 +32,7 @@ namespace :stub do
           m.status = i.even? ? "ON" : "OFF"
           m.disk_usage = tpl.disk / i
           m.machine_template_id = tpl.id
-          m.tag_list = [SecureRandom.hex(3), SecureRandom.hex(4)]
+          m.tag_list = tags_list.sample(2)
         end
         print "."
       end
@@ -41,16 +41,19 @@ namespace :stub do
 
   desc "Creates stub runscripts"
   task runscripts: :environment do
-    tags = %w{node python rails django php postgresql redis }
 
     5.times do
       Runscript.find_or_create_by(name: "Runscript #{SecureRandom.hex(3)}") do |rs|
         rs.script = "#! /usr/bin/env #{%w{ruby python node}.sample}\nputs \"Hello, world\""
-        rs.tag_list += tags.sample(2)
+        rs.tag_list += tags_list.sample(2)
       end
       print "."
     end
 
     puts ""
   end
+end
+
+def tags_list
+  %w{node python rails django php postgresql redis }
 end
