@@ -1,13 +1,20 @@
-{{#each model as |machine|}}
-  <div>
-    <h3>{{machine.name}}</h3>
-    <p>
-      {{machine.status}} | {{machine.diskUsage}}
-    </p>
-    <ul>
-      {{#each machine.tagList as |tag|}}
-        <li>{{tag}}</li>
-      {{/each}}
-    </ul>
-  </div>
-{{/each}}
+<h1>Machines</h1>
+<div class="row">
+  {{#each model as |machine|}}
+    <div class="col-xs-6 col-lg-4">
+      <div class="panel panel-{{machine-status machine.status}}">
+        <div class="panel-heading">{{machine.name}}</div>
+        <div class="panel-body">
+          <p>
+            {{machine.diskUsage}} used
+          </p>
+          <p>
+            {{#each machine.tagList as |tag|}}
+              <span class="label label-info">{{tag}}</span>
+            {{/each}}
+          </p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
