@@ -16,8 +16,8 @@ class MachineSerializerTest < ActiveSupport::TestCase
         attributes: {
           name: machine.name,
           status: machine.status,
-          disk_usage: machine.disk_usage,
-          tag_list: ["store", "pear"]
+          "disk-usage": machine.disk_usage,
+          "tag-list": ["store", "pear"]
         }
       }
     }

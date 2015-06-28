@@ -17,7 +17,7 @@ class RunscriptSerializerTest < ActiveSupport::TestCase
         attributes: {
           name: runscript.name,
           script: runscript.script,
-          tag_list: ["store", "banana"]
+          "tag-list": ["store", "banana"]
         }
       }
     }
