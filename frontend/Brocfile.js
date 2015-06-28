@@ -19,4 +19,8 @@ var app = new EmberApp();
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
 app.import('bower_components/bootstrap/dist/css/bootstrap.css.map');
 
+app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
+    destDir: 'fonts'
+});
+
 module.exports = app.toTree();
