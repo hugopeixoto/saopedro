@@ -1,14 +1,25 @@
 <div class="modal" style='display: block'>
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content form-horizontal">
       <div class="modal-header">
         <h4 class="modal-title">Add runscript</h4>
       </div>
       <div class="modal-body">
-        <p><label>name</label> {{input name="name" value=model.name}}</p>
-        <p><label>script</label> {{textarea name="name" rows="10" cols="40" value=model.script}}</p>
-        <p><label>tags</label> {{input name="tags" value=model.tags}}</p>
-        <p><label>apply now</label> {{input type="checkbox" name="apply-now"}}</p>
+        <p class='form-group'>
+          <label class='control-label col-sm-2'>name</label>
+          <div class="col-sm-10">{{input class="form-control" name="name" value=model.name}}</div>
+        </p>
+        <p class='form-group'>
+          <label class='control-label col-sm-2'>script</label>
+          <div class="col-sm-10">{{textarea class="form-control" name="name" rows="10" cols="40" value=model.script}}</div>
+        </p>
+        <p class='form-group'>
+          <label class='control-label col-sm-2'>tags</label>
+          <div class="col-sm-10">{{input class="form-control" name="tags" value=model.tags}}</div>
+        </p>
+        <p class='form-group'>
+          <div class="col-sm-offset-2 col-sm-10">{{input type="checkbox" name="apply-now"}} apply now</div>
+        </p>
       </div>
       <div class="modal-footer">
         <button {{action 'save' model}}>save</button>
