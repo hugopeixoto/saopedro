@@ -11,8 +11,13 @@
         </p>
         <p class='form-group'>
           <label class='control-label col-sm-2'>script</label>
-          <div class="col-sm-10">{{textarea class="form-control" name="name" rows="10" cols="40" value=model.script}}</div>
+          <div class="col-sm-10">{{textarea class="form-control" name="script" rows="10" cols="40" value=model.script}}</div>
         </p>
+        <p class='form-group'>
+          <label class='control-label col-sm-2'>script</label>
+          <div class="col-sm-10">{{input type="file" class="form-control"}}</div>
+        </p>
+
         <p class='form-group'>
           <label class='control-label col-sm-2'>tags</label>
           <div class="col-sm-10">{{input class="form-control" name="tags" value=model.tags}}</div>
@@ -28,3 +33,16 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $('input[type=file]').fileinput({
+      showPreview: false,
+      showRemove: false,
+      showUpload: false
+  }).on('fileloaded', function(event, file, previewId, index, reader) {
+    reader.onload = function(f) {
+      $('textarea[name=script]').val(f.target.result);
+    }
+
+    reader.readAsText(file);
+  });
+</script>
