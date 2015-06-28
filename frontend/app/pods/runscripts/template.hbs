@@ -1,6 +1,6 @@
 {{outlet}}
-
 <ul>
+  <li>{{#link-to 'runscripts.new'}}Create runscript{{/link-to}}</li>
 {{#each model as |runscript|}}
   <li>
     {{runscript.name}} ({{runscript.tagList}})
