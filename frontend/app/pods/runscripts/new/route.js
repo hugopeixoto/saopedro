@@ -2,15 +2,20 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function() {
-    return this.store.createRecord('runscript');
+    return Ember.Object.create();
   },
+
   actions: {
     cancel: function() {
       this.transitionTo('runscripts');
     },
 
-    save: function(runscript) {
-      console.log(runscript.get("name"));
+    save: function(form) {
+      var runscript = this.store.createRecord('runscript', {
+        name: form.get('name'),
+        script: form.get('script')
+      });
+
       runscript.save();
     }
   }
