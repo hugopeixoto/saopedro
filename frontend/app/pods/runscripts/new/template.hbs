@@ -1,16 +1,19 @@
-<div class='modal-overlay' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: flex-start; padding-top: 100px'>
-  <div class='modal-window' style='width: 400px; background-color: white; padding: 50px'>
-    <h2>Add runscript</h2>
-
-    <p><label>name</label> {{input name="name" value=model.name}}</p>
-    <p><label>script</label> {{textarea name="name" rows="10" cols="40" value=model.script}}</p>
-    <p><label>tags</label> {{input name="tags" value=model.tags}}</p>
-    <p><label>apply now</label> {{input type="checkbox" name="apply-now"}}</p>
-
-    <p>
-      <button {{action 'save' model}}>save</button>
-      <button {{action 'cancel'}}>cancel</button>
-    </p>
-
+<div class="modal" style='display: block'>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add runscript</h4>
+      </div>
+      <div class="modal-body">
+        <p><label>name</label> {{input name="name" value=model.name}}</p>
+        <p><label>script</label> {{textarea name="name" rows="10" cols="40" value=model.script}}</p>
+        <p><label>tags</label> {{input name="tags" value=model.tags}}</p>
+        <p><label>apply now</label> {{input type="checkbox" name="apply-now"}}</p>
+      </div>
+      <div class="modal-footer">
+        <button {{action 'save' model}}>save</button>
+        <button {{action 'cancel'}}>cancel</button>
+      </div>
+    </div>
   </div>
 </div>

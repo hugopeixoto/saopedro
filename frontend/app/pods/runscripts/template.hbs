@@ -1,10 +1,29 @@
 {{outlet}}
-<ul>
-  <li>{{#link-to 'runscripts.new'}}Create runscript{{/link-to}}</li>
-{{#each model as |runscript|}}
-  <li>
-    {{runscript.name}} ({{runscript.tagList}})
-    <code><pre>{{runscript.script}}</pre></code>
-  </li>
-{{/each}}
-</ul>
+
+<h1>Runscripts</h1>
+<div class="row">
+  <div class="col-xs-6 col-lg-4">
+    <div class="panel panel-success">
+      <div class="panel-heading">New runscript</div>
+      <div class="panel-body">
+        {{#link-to 'runscripts.new'}}+{{/link-to}}
+      </div>
+    </div>
+  </div>
+
+  {{#each model as |runscript|}}
+    <div class="col-xs-6 col-lg-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">{{runscript.name}}</div>
+        <div class="panel-body">
+          <p>
+            {{#each runscript.tagList as |tag|}}
+              <span class="label label-info">{{tag}}</span>
+            {{/each}}
+          </p>
+          <code><pre>{{runscript.script}}</pre></code>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
