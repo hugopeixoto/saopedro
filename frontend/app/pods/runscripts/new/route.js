@@ -11,14 +11,15 @@ export default Ember.Route.extend({
     },
 
     save: function(form) {
+      var that = this;
       var runscript = this.store.createRecord('runscript', {
         name: form.get('name'),
         script: form.get('script')
       });
 
       runscript.save().then(function() {
-        this.transitionTo('runscripts');
-      }).catch(function() {
+        that.transitionTo('runscripts');
+      }).catch(function(e) {
         runscript.destroyRecord();
       });
     }
