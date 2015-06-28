@@ -32,6 +32,7 @@ namespace :stub do
           m.status = i.even? ? "ON" : "OFF"
           m.disk_usage = tpl.disk / i
           m.machine_template_id = tpl.id
+          m.tag_list = [SecureRandom.hex(3), SecureRandom.hex(4)]
         end
         print "."
       end
