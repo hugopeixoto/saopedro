@@ -4,5 +4,6 @@ export default DS.Model.extend({
   name: DS.attr(),
   status: DS.attr(),
   diskUsage: DS.attr(),
-  tagList: DS.attr()
+  tagList: DS.attr(),
+  machineTemplate: DS.belongsTo('machineTemplate')
 });
