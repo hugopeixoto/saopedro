@@ -6,7 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('machines', { path: '/' });
+  this.route('machines', { path: '/' }, function() {
+    this.route('new', { path: 'machines/new' } );
+  });
   this.route('runscripts', function() {
     this.route('new');
   });
