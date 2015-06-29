@@ -1,4 +1,5 @@
 {{#our-modal title="Add machine" param=model save="save" cancel="cancel"}}
+  My selectedItem {{mySelectedItem.name}}
   <form>
     <div class="modal-body">
       <p class="form-group">
@@ -7,6 +8,11 @@
           {{my-select content=model.providers action=(action (mut mySelectedItem))}}
         </div>
       </p>
+      <ul>
+        {{#each mySelectedItem.machineTemplates as |tpl|}}
+          <li>{{tpl.name}} - {{tpl.disk}}</li>
+        {{/each}}
+      </ul>
       {{machine-form machine="model.machine"}}
     </div>
   </form>

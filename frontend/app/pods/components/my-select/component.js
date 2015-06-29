@@ -10,7 +10,7 @@ export default Ember.Component.extend({
       const selectedEl = this.$('select')[0];
       const selectedIndex = selectedEl.selectedIndex;
       const content = this.get('content');
-      const selectedValue = content[selectedIndex];
+      const selectedValue = content.objectAt(selectedIndex);
 
       this.set('selectedValue', selectedValue);
       changeAction(selectedValue);
