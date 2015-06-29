@@ -1,7 +1,13 @@
 {{#our-modal title="Add machine" param=model save="save" cancel="cancel"}}
   <form>
     <div class="modal-body">
-      {{machine-form machine="model"}}
+      <p class="form-group">
+        <label class='control-label col-sm-2'>Machine</label>
+        <div class="col-sm-10">
+          {{my-select content=model.providers action=(action (mut mySelectedItem))}}
+        </div>
+      </p>
+      {{machine-form machine="model.machine"}}
     </div>
   </form>
 {{/our-modal}}
