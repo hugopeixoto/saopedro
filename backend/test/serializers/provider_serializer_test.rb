@@ -5,7 +5,9 @@ class ProviderSerializerTest < ActiveSupport::TestCase
   end
 
   test "serialization" do
-    provider = Provider.create name: "", api_key: "OK"
+    machine_template = MachineTemplate.create(name: 'template')
+    provider = Provider.create name: "", api_key: "OK",
+      machine_templates: [machine_template]
 
     expected = {
       data: {
@@ -14,6 +16,13 @@ class ProviderSerializerTest < ActiveSupport::TestCase
         attributes: {
           name: provider.name,
           "api-key": provider.api_key
+        },
+        relationships: {
+          machine_templates: {
+            data: [
+              { type: 'machine_templates', id: machine_template.id.to_s }
+            ]
+          }
         }
       }
     }
