@@ -5,9 +5,10 @@ class MachineTemplateSerializerTest < ActiveSupport::TestCase
   end
 
   test "serialization" do
+    provider = Provider.create(name: 'a name')
     machine_template = MachineTemplate.create name: "", disk: "500M",
       cores: "2", ram: 500, price: "barato", location: "Portugal",
-      transfer: "1TB"
+      transfer: "1TB", provider_id: provider.id
 
     expected = {
       data: {
@@ -21,6 +22,12 @@ class MachineTemplateSerializerTest < ActiveSupport::TestCase
           price: machine_template.price,
           location: machine_template.location,
           transfer: machine_template.transfer,
+        },
+        relationships: {
+          provider: {
+            data:
+            { type: "providers", id: provider.id.to_s }
+          }
         }
       }
     }
