@@ -19,7 +19,7 @@ export default Ember.Route.extend({
 
       runscript.save().then(function() {
         that.transitionTo('runscripts');
-      }).catch(function(e) {
+      }).catch(function() {
         runscript.destroyRecord();
       });
     }
