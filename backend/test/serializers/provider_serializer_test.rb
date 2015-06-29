@@ -13,7 +13,7 @@ class ProviderSerializerTest < ActiveSupport::TestCase
         type: 'providers',
         attributes: {
           name: provider.name,
-          "api-key": provider.api_key,
+          "api-key": provider.api_key
         }
       }
     }
