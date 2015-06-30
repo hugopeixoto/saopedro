@@ -1,18 +1,25 @@
-{{#our-modal title="Add machine" param=model save="save" cancel="cancel"}}
+{{#our-modal title="Add machine" param=model.machine save="save" cancel="cancel"}}
   <form>
     <div class="modal-body">
       <p class="form-group">
-        <label class='control-label col-sm-2'>Provider</label>
+        <label for="provider-select" class='control-label col-sm-2'>
+          Provider
+        </label>
         <div class="col-sm-10">
-          {{my-select content=model.providers action=(action (mut mySelectedItem))}}
+          {{my-select id="provider-select" content=model.providers
+            action=(action (mut mySelectedItem))}}
         </div>
       </p>
       <div class="row">
         {{#each mySelectedItem.machineTemplates as |tpl|}}
           <div class="col-xs-6 col-lg-4">
             <div class="panel panel-primary">
-              <div class="panel-heading">
-                {{tpl.name}}
+              <div class="panel-heading radio">
+                <label class="machine-template-selector">
+                  {{input type="radio"
+                    name="machine_template_id" value=tpl.id}}
+                  {{tpl.name}}
+                </label>
               </div>
               <div class="panel-body">
                 <table class="table table-condensed">

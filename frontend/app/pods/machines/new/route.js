@@ -10,14 +10,13 @@ export default Ember.Route.extend({
 
   actions: {
     cancel: function() {
-      this.$('.modal').modal('hide');
       this.transitionTo('machines');
     },
 
     save: function(form) {
-      this.$('.modal').modal('hide');
       var machine = this.store.createRecord('machine', {
-        name: form.get('name')
+        name: form.get('name'),
+        machineTemplate: form.get('')
       });
       machine.save();
     }
