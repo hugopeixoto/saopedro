@@ -10,9 +10,11 @@ class RunscriptsController < ApplicationController
 
     raise unless payload.fetch('data').fetch('type') == 'runscripts'
 
-    attrs = payload.fetch('data').fetch('attributes').select do |k, v|
+    attrs = Hash[payload.fetch('data').fetch('attributes').select do |k, v|
       ['name', 'script', 'tag-list'].include? k
-    end
+    end.map do |k, v|
+      [k.underscore, v]
+    end]
 
     runscript = Runscript.new attrs
     if runscript.save
