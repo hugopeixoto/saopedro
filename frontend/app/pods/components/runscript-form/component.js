@@ -4,7 +4,9 @@ export default Ember.Component.extend({
   didInsertElement: function() {
     var that = this;
 
-    Ember.$('input[type=file]').fileinput({
+    Ember.$('input[name=tags]').tagsinput();
+
+    Ember.$('input[name=upload]').fileinput({
         showPreview: false,
         showRemove: false,
         showUpload: false

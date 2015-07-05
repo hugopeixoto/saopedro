@@ -14,7 +14,8 @@ export default Ember.Route.extend({
       var that = this;
       var runscript = this.store.createRecord('runscript', {
         name: form.get('name'),
-        script: form.get('script')
+        script: form.get('script'),
+        tagList: form.get('tags').split(',')
       });
 
       runscript.save().then(function() {
