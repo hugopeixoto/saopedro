@@ -7,11 +7,11 @@
         </label>
         <div class="col-sm-10">
           {{my-select id="provider-select" content=model.providers
-            action=(action (mut mySelectedItem))}}
+            action=(action (mut selectedProvider))}}
         </div>
       </p>
       <div class="row">
-        {{#each mySelectedItem.machineTemplates as |tpl|}}
+        {{#each selectedProvider.machineTemplates as |tpl|}}
           <div class="col-xs-6 col-lg-4">
             <div class="panel panel-primary">
               <div class="panel-heading radio">
