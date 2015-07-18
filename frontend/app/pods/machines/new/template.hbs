@@ -16,8 +16,7 @@
             <div class="panel panel-primary">
               <div class="panel-heading radio">
                 <label class="machine-template-selector">
-                  {{input type="radio"
-                    name="machine_template_id" value=tpl.id}}
+                  {{input type="radio" name="machine-template" value=tpl.id}}
                   {{tpl.name}}
                 </label>
               </div>
@@ -47,7 +46,7 @@
           </div>
         {{/each}}
       </div>
-      {{machine-form machine="model.machine"}}
+      {{machine-form model=model.machine}}
     </div>
   </form>
 {{/our-modal}}

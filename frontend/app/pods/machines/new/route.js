@@ -13,12 +13,23 @@ export default Ember.Route.extend({
       this.transitionTo('machines');
     },
 
-    save: function(form) {
+    save: function(form, machineTemplateId) {
+      var that = this;
+      var machineTemplate;
       var machine = this.store.createRecord('machine', {
         name: form.get('name'),
-        machineTemplate: form.get('')
+        tagList: form.get('tags') !== undefined ? form.get('tags').split(',') : []
       });
-      machine.save();
+      this.store.findRecord('machineTemplate', machineTemplateId).
+        then(function(machineTemplate) {
+        machine.set('machineTemplate', machineTemplate);
+
+        machine.save().then(function() {
+          that.transitionTo('machines');
+        }).catch(function() {
+          machine.destroyRecord();
+        });
+      });
     }
   }
 });
