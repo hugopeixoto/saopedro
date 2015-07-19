@@ -8,7 +8,8 @@ export default Ember.Component.extend({
     },
     save: function() {
       this.$('.modal').modal('hide');
-      this.sendAction('save', this.get('param'));
+      this.sendAction('save', this.get('param'),
+                      this.$("input[name=machine-template]:checked").val());
     }
   },
   show: function() {
