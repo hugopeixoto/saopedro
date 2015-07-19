@@ -18,7 +18,7 @@
       <div class="panel panel-{{machine-status machine.status}}">
         <div class="panel-heading">
           <div class='pull-right'>
-            {{#link-to 'machines'}}
+            {{#link-to 'machines.edit' machine.id}}
               <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
             {{/link-to}}
             {{#link-to 'machines'}}

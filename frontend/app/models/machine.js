@@ -5,5 +5,9 @@ export default DS.Model.extend({
   status: DS.attr('string'),
   diskUsage: DS.attr(),
   tagList: DS.attr(),
-  machineTemplate: DS.belongsTo('machineTemplate')
+  machineTemplate: DS.belongsTo('machineTemplate'),
+
+  tags: function() {
+    return this.get('tagList');
+  }.property('tagList')
 });
