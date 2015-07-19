@@ -4,8 +4,6 @@ class MachinesController < ApplicationController
   end
 
   def create
-    raise unless request.format == 'application/vnd.api+json'
-
     payload = JSON.parse request.body.read
 
     raise unless payload.fetch('data').fetch('type') == 'machines'
